@@ -1,4 +1,4 @@
-import { caesarCipher } from './caesarCipher';
+import caesarCipher from './caesarCipher';
 
 test('Test a word', () => {
   expect(caesarCipher('cipher', 3)).toBe('flskhu');
@@ -7,22 +7,19 @@ test('Test a word', () => {
 test('Test lowercase and uppercase alphabets', () => {
   expect(
     caesarCipher('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', 3)
-  )
-  .toBe('defghijklmnopqrstuvwxyzabcDEFGHIJKLMNOPQRSTUVWXYZABC');
+  ).toBe('defghijklmnopqrstuvwxyzabcDEFGHIJKLMNOPQRSTUVWXYZABC');
 });
 
 test('Test uppercase and lowercase', () => {
-  expect(
-    caesarCipher('ThErE iS nO nEeD tO cHaNgE cAsE', 5)
-  )
-  .toBe('YmJwJ nX sT sJjI yT hMfSlJ hFxJ');
+  expect(caesarCipher('ThErE iS nO nEeD tO cHaNgE cAsE', 5)).toBe(
+    'YmJwJ nX sT sJjI yT hMfSlJ hFxJ'
+  );
 });
 
 test('Test a string with other symbols', () => {
-  expect(
-    caesarCipher('there are [] 0ther symb01s h3r3', 3)
-  )
-  .toBe('wkhuh duh [] 0wkhu vbpe01v k3u3');
+  expect(caesarCipher('there are [] 0ther symb01s h3r3', 3)).toBe(
+    'wkhuh duh [] 0wkhu vbpe01v k3u3'
+  );
 });
 
 test('Test a sentence', () => {
@@ -31,8 +28,9 @@ test('Test a sentence', () => {
       'If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out.',
       7
     )
-  )
-  .toBe('Pm ol ohk hufaopun jvumpkluaphs av zhf, ol dyval pa pu jpwoly, aoha pz, if zv johunpun aol vykly vm aol slaalyz vm aol hswohila, aoha uva h dvyk jvbsk il thkl vba.');
+  ).toBe(
+    'Pm ol ohk hufaopun jvumpkluaphs av zhf, ol dyval pa pu jpwoly, aoha pz, if zv johunpun aol vykly vm aol slaalyz vm aol hswohila, aoha uva h dvyk jvbsk il thkl vba.'
+  );
 });
 
 test('Test large keys', () => {

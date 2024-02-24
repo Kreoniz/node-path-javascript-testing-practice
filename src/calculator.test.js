@@ -1,4 +1,4 @@
-import { calculator } from './calculator';
+import calculator from './calculator';
 
 test('Check if all the methods are defined', () => {
   expect(calculator.add).toBeDefined();

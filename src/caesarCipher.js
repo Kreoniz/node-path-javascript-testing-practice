@@ -12,7 +12,7 @@ for (let i = 'A'.charCodeAt(); i <= 'Z'.charCodeAt(); i += 1) {
 const alphabetLength = lowercaseLetters.length;
 
 function getNewIndex(key, position) {
-  let index = (key + position);
+  const index = key + position;
 
   if (index > alphabetLength - 1) {
     return index % alphabetLength;
@@ -21,23 +21,19 @@ function getNewIndex(key, position) {
   return index;
 }
 
-export function caesarCipher(string, key=3) {
-  if (key > (alphabetLength - 1) || key < 0) {
-    key = key % alphabetLength;
-  }
-
+export default function caesarCipher(string, key = 3) {
   let cipher = '';
   for (let i = 0; i < string.length; i += 1) {
     const char = string[i];
 
     if (lowercaseLetters.includes(char)) {
       const position = lowercaseLetters.indexOf(char);
-      const index = getNewIndex(key, position);
+      const index = getNewIndex(key % alphabetLength, position);
 
       cipher += lowercaseLetters.at(index);
     } else if (uppercaseLetters.includes(char)) {
       const position = uppercaseLetters.indexOf(char);
-      const index = getNewIndex(key, position);
+      const index = getNewIndex(key % alphabetLength, position);
 
       cipher += uppercaseLetters.at(index);
     } else {
