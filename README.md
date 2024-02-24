@@ -1,14 +1,15 @@
 # Overview of the project
 
 ## Compiling and testing
+All the functions and their tests are in the `src` folder.
+
 [Babel](https://babeljs.io/) is used for ES6 modules with [jest](https://jestjs.io/).
-To compile the project run
+To compile the functions and the tests run:
 ```console
 $ npm run babel
 ```
 
-All the functions and their tests are in the `src` folder.
-To run the tests run
+To run the tests **in the `dist` folder** run:
 ```console
 $ npm test 
 ```
